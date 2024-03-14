@@ -26,7 +26,30 @@ defmodule DaimonDatePickerWeb.HomeLive do
       <%= for wd <- ~w(Su Mo Tu We Th Fr Sa) do %>
         <div class="p-1 bg-gray-300 text-center"><%= wd %></div>
       <% end %>
+      <%= for day <- get_days_for_date_picker(@current_month) do %>
+        <%= if day do %>
+          <button
+            type="button"
+            class="p-1 bg-gray-700 text-white text-right"
+          >
+            <%= day %>
+          </button>
+        <% else %>
+          <div class="p-1 bg-gray-100"></div>
+        <% end %>
+      <% end %>
     </div>
     """
+  end
+
+  defp get_days_for_date_picker(current_month) do
+    day1 = Date.beginning_of_week(current_month, :sunday)
+    eom = Date.end_of_month(current_month)
+    len = if Date.diff(eom, day1) >= 35, do: 42, else: 35
+
+    for n <- 0..(len - 1) do
+      d = Date.add(day1, n)
+      if d.month == current_month.month, do: d.day, else: nil
+    end
   end
 end
