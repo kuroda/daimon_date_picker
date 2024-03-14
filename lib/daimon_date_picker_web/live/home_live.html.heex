@@ -7,6 +7,6 @@
     phx-click="toggle_date_picker"
   />
   <%= if @activated do %>
-    <.date_picker />
+    <.date_picker current_month={@current_month} />
   <% end %>
 </div>
