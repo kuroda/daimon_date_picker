@@ -23,6 +23,9 @@ defmodule DaimonDatePickerWeb.HomeLive do
         <span><%= Calendar.strftime(@current_month, "%B %Y") %></span>
         <button type="button" class="underline">Next</button>
       </div>
+      <%= for wd <- ~w(Su Mo Tu We Th Fr Sa) do %>
+        <div class="p-1 bg-gray-300 text-center"><%= wd %></div>
+      <% end %>
     </div>
     """
   end
