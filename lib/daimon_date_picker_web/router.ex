@@ -12,5 +12,7 @@ defmodule DaimonDatePickerWeb.Router do
 
   scope "/", DaimonDatePickerWeb do
     pipe_through :browser
+
+    live "/", HomeLive, :index
   end
 end
