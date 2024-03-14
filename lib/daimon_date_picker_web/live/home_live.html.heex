@@ -4,5 +4,9 @@
     class="w-60"
     value={Date.to_string(@selected_date)}
     readonly
+    phx-click="toggle_date_picker"
   />
+  <%= if @activated do %>
+    <.date_picker />
+  <% end %>
 </div>
