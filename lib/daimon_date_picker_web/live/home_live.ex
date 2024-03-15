@@ -15,13 +15,33 @@ defmodule DaimonDatePickerWeb.HomeLive do
     {:noreply, assign(socket, :activated, not socket.assigns.activated)}
   end
 
+  def handle_event("prev_month", _params, socket) do
+    next_month =
+      socket.assigns.current_month
+      |> Date.add(-1)
+      |> Date.beginning_of_month()
+
+    socket = assign(socket, :current_month, next_month)
+    {:noreply, socket}
+  end
+
+  def handle_event("next_month", _params, socket) do
+    next_month =
+      socket.assigns.current_month
+      |> Date.end_of_month()
+      |> Date.add(1)
+
+    socket = assign(socket, :current_month, next_month)
+    {:noreply, socket}
+  end
+
   defp date_picker(assigns) do
     ~H"""
     <div class="w-60 border mt-4 p-2 border-black grid grid-cols-7 gap-1">
       <div class="col-span-7 p-1 flex justify-between">
-        <button type="button" class="underline">Prev</button>
+        <button type="button" class="underline" phx-click="prev_month">Prev</button>
         <span><%= Calendar.strftime(@current_month, "%B %Y") %></span>
-        <button type="button" class="underline">Next</button>
+        <button type="button" class="underline" phx-click="next_month">Next</button>
       </div>
       <%= for wd <- ~w(Su Mo Tu We Th Fr Sa) do %>
         <div class="p-1 bg-gray-300 text-center"><%= wd %></div>
