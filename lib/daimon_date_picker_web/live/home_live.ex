@@ -35,6 +35,23 @@ defmodule DaimonDatePickerWeb.HomeLive do
     {:noreply, socket}
   end
 
+  def handle_event("select_date", %{"day" => day} = _params, socket) do
+    eom = Date.end_of_month(socket.assigns.current_month)
+
+    selected_date =
+      case Integer.parse(day) do
+        {d, ""} when d in 1..eom.day -> %{socket.assigns.current_month | day: d}
+        _ -> socket.assigns.current_month
+      end
+
+    socket =
+      socket
+      |> assign(:selected_date, selected_date)
+      |> assign(:activated, false)
+
+    {:noreply, socket}
+  end
+
   defp date_picker(assigns) do
     ~H"""
     <div class="w-60 border mt-4 p-2 border-black grid grid-cols-7 gap-1">
@@ -51,6 +68,8 @@ defmodule DaimonDatePickerWeb.HomeLive do
           <button
             type="button"
             class="p-1 bg-gray-700 text-white text-right"
+            phx-click="select_date"
+            phx-value-day={day}
           >
             <%= day %>
           </button>
