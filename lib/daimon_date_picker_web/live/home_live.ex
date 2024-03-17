@@ -16,12 +16,12 @@ defmodule DaimonDatePickerWeb.HomeLive do
   end
 
   def handle_event("prev_month", _params, socket) do
-    next_month =
+    prev_month =
       socket.assigns.current_month
       |> Date.add(-1)
       |> Date.beginning_of_month()
 
-    socket = assign(socket, :current_month, next_month)
+    socket = assign(socket, :current_month, prev_month)
     {:noreply, socket}
   end
 
