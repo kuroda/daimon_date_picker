@@ -13,9 +13,12 @@ config :daimon_date_picker, DaimonDatePickerWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "RQ8wRd92ApB+krMLkR0CArBALFFA6fa75kQsbFUiibN7CsEtiIf1iIs41DlkZTwi",
+  secret_key_base:
+    "RQ8wRd92ApB+krMLkR0CArBALFFA6fa75kQsbFUiibN7CsEtiIf1iIs41DlkZTwi",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:daimon_date_picker, ~w(--sourcemap=inline --watch)]},
+    esbuild:
+      {Esbuild, :install_and_run,
+       [:daimon_date_picker, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:daimon_date_picker, ~w(--watch)]}
   ]
 

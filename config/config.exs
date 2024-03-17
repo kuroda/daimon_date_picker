@@ -15,7 +15,10 @@ config :daimon_date_picker, DaimonDatePickerWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: DaimonDatePickerWeb.ErrorHTML, json: DaimonDatePickerWeb.ErrorJSON],
+    formats: [
+      html: DaimonDatePickerWeb.ErrorHTML,
+      json: DaimonDatePickerWeb.ErrorJSON
+    ],
     layout: false
   ],
   pubsub_server: DaimonDatePicker.PubSub,

@@ -64,8 +64,14 @@ defmodule DaimonDatePicker.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind daimon_date_picker", "esbuild daimon_date_picker"],
+      "assets.setup": [
+        "tailwind.install --if-missing",
+        "esbuild.install --if-missing"
+      ],
+      "assets.build": [
+        "tailwind daimon_date_picker",
+        "esbuild daimon_date_picker"
+      ],
       "assets.deploy": [
         "tailwind daimon_date_picker --minify",
         "esbuild daimon_date_picker --minify",

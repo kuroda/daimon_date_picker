@@ -4,7 +4,8 @@ import Config
 # you can enable the server option below.
 config :daimon_date_picker, DaimonDatePickerWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "fYF9buF2UhgWft7preXhFu6rZKOC7DINXgqkVaRb/fSpgmB7KAr0KWLTzfHK+duC",
+  secret_key_base:
+    "fYF9buF2UhgWft7preXhFu6rZKOC7DINXgqkVaRb/fSpgmB7KAr0KWLTzfHK+duC",
   server: false
 
 # Print only warnings and errors during test
