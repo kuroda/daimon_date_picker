@@ -11,7 +11,8 @@ defmodule DaimonDatePicker.Application do
       DaimonDatePickerWeb.Telemetry,
       {DNSCluster,
        query:
-         Application.get_env(:daimon_date_picker, :dns_cluster_query) || :ignore},
+         Application.get_env(:daimon_date_picker, :dns_cluster_query) ||
+           :ignore},
       {Phoenix.PubSub, name: DaimonDatePicker.PubSub},
       # Start a worker by calling: DaimonDatePicker.Worker.start_link(arg)
       # {DaimonDatePicker.Worker, arg},
