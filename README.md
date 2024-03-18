@@ -23,3 +23,8 @@ mix setup
 
 * Start this app with `mix phx.server` command.
 * Visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+## Links
+
+* [Blog article](https://zenn.dev/tkrd/articles/e8d135120e63ef) explaining DaimonDatePicker in
+Japanese.
